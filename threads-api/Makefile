@@ -1,9 +1,11 @@
 CC     := gcc
-CFLAGS := -Wall -Werror -I../include 
+#CFLAGS := -Wall -Werror -I../include 
+CFLAGS := -Wall  -I../include 
 
 SRCS   := thread_create.c \
 	thread_create_simple_args.c \
-	thread_create_with_return_args.c
+	thread_create_with_return_args.c \
+	thread_routines.c
 
 OBJS   := ${SRCS:c=o}
 PROGS  := ${SRCS:.c=}
