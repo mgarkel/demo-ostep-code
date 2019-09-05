@@ -10,6 +10,8 @@ thread.
 parent.
 - `thread_create_simple_args.c`: Simpler argument/return value passing for the
 lazy. 
+- `thread_routines.c`: Different thread stacks. 
+
 
 Type `make` to build; each file `foo.c` generates an executable `foo` which
 you can then run, e.g.:
