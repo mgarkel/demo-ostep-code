@@ -7,6 +7,7 @@ typedef struct {
     int b;
 } myarg_t;
 
+// define a global var here
 myarg_t global_var = { 30, 40 };
 
 void *routine1(void *arg) {
@@ -35,10 +36,10 @@ int main(int argc, char *argv[]) {
     pthread_t p1, p2;
     myarg_t args = { 10, 20 };
 
-    int rc = pthread_create(&p1, NULL, routine1, &args);
-    assert(rc == 0);
-    rc = pthread_create(&p2, NULL, routine2, &args);
-    assert(rc == 0);
+    int rc1 = pthread_create(&p1, NULL, routine1, &args);
+    assert(rc1 == 0);
+    int rc2 = pthread_create(&p2, NULL, routine2, &args);
+    assert(rc2 == 0);
     (void) pthread_join(p1, NULL);
     (void) pthread_join(p2, NULL);
     printf("done\n");
