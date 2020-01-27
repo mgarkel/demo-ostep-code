@@ -5,8 +5,7 @@
 #include <sys/wait.h>
 
 int
-main(int argc, char *argv[])
-{
+main(int argc, char *argv[]) {
     printf("hello world (pid:%d)\n", (int) getpid());
     int rc = fork();
     if (rc < 0) {
@@ -25,8 +24,9 @@ main(int argc, char *argv[])
     } else {
         // parent goes down this path (original process)
         int wc = wait(NULL);
-        printf("hello, I am parent of %d (wc:%d) (pid:%d)\n",
-	       rc, wc, (int) getpid());
+		printf("hello, I am parent of %d (wc:%d) (pid:%d)\n",
+					rc, wc, (int) getpid());
     }
+
     return 0;
 }
