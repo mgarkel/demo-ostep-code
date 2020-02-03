@@ -18,6 +18,7 @@ void *routine1(void *arg) {
 				args->a, args->b, 
 				global_var.a, global_var.b,
 				(unsigned int) &t1_var1, (unsigned int) &t1_var2);
+	printf("Thread routine1:\n addr of myarg: %x\n", (unsigned int) arg);
     return NULL;
 }
 
@@ -29,12 +30,15 @@ void *routine2(void *arg) {
 				args->a, args->b, 
 				global_var.a, global_var.b,
 				(unsigned int) &t2_var1, (unsigned int) &t2_var2);
+	printf("Thread routine2:\n addr of myarg: %x\n", (unsigned int) arg);
     return NULL;
 }
 
 int main(int argc, char *argv[]) {
     pthread_t p1, p2;
     myarg_t args = { 10, 20 };
+
+	printf("Main process:\n addr or myarg: %x\n", (unsigned int) &args);
 
     int rc1 = pthread_create(&p1, NULL, routine1, &args);
     assert(rc1 == 0);
